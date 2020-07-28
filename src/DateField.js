@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
  * @export
  * @class DateField
  * @extends {Component}
- * @property {string} id
- * @property {object} field
- * @property {function} onChange
+ * @property {string} id Field name.
+ * @property {object} field Object containing sample data for rendering.
+ * @property {function} onChange Function to send date value to parent for processing.
  */
 export default class DateField extends Component {
   static propTypes = {
@@ -19,8 +19,8 @@ export default class DateField extends Component {
   };
 
   /**
-   * Sends date value to parent for processing
-   * We're determining whether the 'parental consent' checkbox should be rendered
+   * Sends date value to parent for processing.
+   * We're determining whether the 'parental consent' checkbox should be rendered.
    *
    * @memberof DateField
    */

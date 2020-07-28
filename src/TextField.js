@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
  * @export
  * @class TextField
  * @extends {Component}
- * @property {string} id
- * @property {object} field
+ * @property {string} id Field name.
+ * @property {object} field Object containing sample data for rendering.
  */
 export default class TextField extends Component {
     static propTypes = {

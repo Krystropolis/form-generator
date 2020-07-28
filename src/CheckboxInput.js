@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
  * @export
  * @class CheckboxInput
  * @extends {Component}
- * @property {string} id
- * @property {object} field
- * @property {Date} date
+ * @property {string} id Field name.
+ * @property {object} field Object containing sample data for rendering.
+ * @property {Date} date Date used to determine whether this field should be rendered.
  */
 export default class CheckboxInput extends Component {
     static propTypes = {
