@@ -1,31 +1,55 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
+import oops from './data-missing.png';
 import './App.css';
 import TextField from './TextField';
 import EmailField from './EmailField';
 import DateField from './DateField';
 import CheckboxInput from './CheckboxInput';
 
+/**
+ * Entry to app. Holds all components of the form.
+ *
+ * @class App
+ * @extends {Component}
+ */
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null,
+      data: [],
       fields: [],
-      date: null
+      date: null,
+      warning: false
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
+  /**
+   * Checks for sample data from which form will be generated.
+   *
+   * @memberof App
+   */
   componentDidMount() {
     const data = require('./sample-data');
-    this.setState({ data: data });
+    if (Array.isArray(data)) {
+      this.setState({ data: data });
+    } else {
+      this.setState({ warning: true });
+    }
   }
 
   handleChange(value) {
-    this.setState({date: new Date(value)});
+    this.setState({ date: new Date(value) });
   }
 
+  /**
+   * Uses sample data to create form components.
+   *
+   * @param {*} data
+   * @returns form - all input components 
+   * @memberof App
+   */
   generateForm(data) {
     const form = data.map(field => {
       if (field.tag === "input") {
@@ -37,7 +61,7 @@ class App extends Component {
           case 'date':
             return <DateField key={field.name} field={field} onChange={this.handleChange} />;
           case 'checkbox':
-            return <CheckboxInput key={field.name} field={field} date={this.state.date}/>;
+            return <CheckboxInput key={field.name} field={field} date={this.state.date} />;
           default:
             return null;
         }
@@ -49,15 +73,17 @@ class App extends Component {
   }
 
   /**
-   *  This is where custom validation could occur prior to sending the form data along
-   *  It would be good to create several validation functions to check each input type
-   * */ 
+   * This is where custom validation could occur prior to sending the form data along.
+   * It would be good to create several validation functions to check each input type.
+   *
+   * @memberof App
+   */
   validateFormOnSubmit = (event) => {
     event.preventDefault();
     let userData = {};
     this.state.data.forEach(field => {
       userData[field.name] = event.target[field.name] ? event.target[field.name].value : "";
-    });    
+    });
     // temporary: for viewing submitted data in dev tools
     console.log(JSON.stringify(userData));
   }
@@ -67,7 +93,7 @@ class App extends Component {
     if (this.state.data) {
       form = this.generateForm(this.state.data);
     }
-    
+
     return (
       <div className="App container">
         <div className="App-header">
@@ -75,17 +101,26 @@ class App extends Component {
           <small>By: Krystal Elliott</small>
         </div>
         <div className="App-intro">
-          {form &&
+          {this.state.warning &&
+            <div>
+              <div className="alert alert-warning" role="alert">
+                Error: Sample data missing/incorrect.<br />
+                Please call 1-800-Add-Data for assistance.
+              </div>
+              <img src={oops} alt="error" className="error-image img-fluid" />
+            </div>
+          }
+          {!this.state.warning && form &&
             <form id="user-info" action="#" onSubmit={this.validateFormOnSubmit}>
               {form}
-              <button type="submit" className="btn btn-primary btn-block">
+              <button type="submit" className="btn btn-primary btn-block" id="user-info-btn">
                 Submit
               </button>
               <small>* required field</small>
             </form>
           }
         </div>
-      </div>
+      </div >
     );
   }
 }
