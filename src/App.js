@@ -20,7 +20,8 @@ class App extends Component {
       data: [],
       fields: [],
       date: null,
-      warning: false
+      warning: false,
+      thankyou: null
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -84,6 +85,13 @@ class App extends Component {
     this.state.data.forEach(field => {
       userData[field.name] = event.target[field.name] ? event.target[field.name].value : "";
     });
+    this.setState({
+      thankyou: (
+        <div className="alert alert-success" role="alert">
+          Thank you for your submission!
+        </div>
+      )
+    })
     // temporary: for viewing submitted data in dev tools
     console.log(JSON.stringify(userData));
   }
@@ -110,6 +118,7 @@ class App extends Component {
               <img src={oops} alt="error" className="error-image img-fluid" />
             </div>
           }
+          {this.state.thankyou}
           {!this.state.warning && form &&
             <form id="user-info" action="#" onSubmit={this.validateFormOnSubmit}>
               {form}
