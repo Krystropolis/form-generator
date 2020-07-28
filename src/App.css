@@ -1,0 +1,22 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgb(18, 47, 92);
+  color: white;
+  padding: 20px;
+}
+
+.App-intro {
+  font-size: large;
+  margin: 0 10%;
+}
+
+.form-group {
+  margin: 2% 0;
+}
