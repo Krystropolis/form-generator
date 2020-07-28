@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Input fields for sample data type of 'text'.
+ * Includes input types text and tel.
+ *
+ * @export
+ * @class TextField
+ * @extends {Component}
+ * @property {string} id
+ * @property {object} field
+ */
 export default class TextField extends Component {
     static propTypes = {
         id: PropTypes.string,

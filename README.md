@@ -40,7 +40,7 @@ Supports input type **date**
 - Visually connect the field to any associated checkboxes for a more intuitive user experience, perhaps with intentional spacing.
 
 ### EmailField
-Supports input type **email**. Has an example of how a field might be marked as required; this would require an update to App and sample-data, as well.
+Supports input type **email**. Has an example of how a field might be marked as required; this would require an update to sample-data, as well.
 
 *Potential Improvements*
 - Display format requirements on field exit instead of form submission.

@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+
+/**
+ * Input field for sample data type of 'email'.
+ *
+ * @export
+ * @class EmailInput
+ * @extends {Component}
+ */
 export default class EmailInput extends Component {
   static propTypes = {
     id: PropTypes.string,

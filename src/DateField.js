@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Input field for sample data type of 'date'.
+ *
+ * @export
+ * @class DateField
+ * @extends {Component}
+ * @property {string} id
+ * @property {object} field
+ * @property {function} onChange
+ */
 export default class DateField extends Component {
   static propTypes = {
     id: PropTypes.string,
@@ -8,6 +18,12 @@ export default class DateField extends Component {
     onChange: PropTypes.func
   };
 
+  /**
+   * Sends date value to parent for processing
+   * We're determining whether the 'parental consent' checkbox should be rendered
+   *
+   * @memberof DateField
+   */
   handleDateChange = (event) => {
     let value = event.target.value;
     this.props.onChange(value);
