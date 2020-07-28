@@ -35,6 +35,7 @@ module.exports = [
     "name": "parental_consent",
     "type": "checkbox",
     "human_label": "Parental Consent",
+    "required": true,
     "conditional": {
       "name": "date_of_birth",
       "show_if": (value) => {

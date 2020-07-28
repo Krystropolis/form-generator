@@ -29,8 +29,11 @@ export default class CheckboxInput extends Component {
                         value={true}
                         id={this.props.field.name}
                         name={this.props.field.name}
-                        required></input>
-                    <label className="form-check-label" htmlFor={this.props.field.name}>{this.props.field.human_label}</label>
+                        required={this.props.field.required}></input>
+                    <label className="form-check-label" htmlFor={this.props.field.name}>
+                        {this.props.field.human_label}
+                        {this.props.field.required && <span>*</span>}
+                    </label>
                 </div>
             );
         } else {
