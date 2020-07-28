@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
-import oops from './data-missing.png';
-import './App.css';
+import logo from './images/logo.png';
+import oops from './images/data-missing.png';
+import './style/App.css';
 import TextField from './TextField';
 import EmailField from './EmailField';
 import DateField from './DateField';

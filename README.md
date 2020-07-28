@@ -2,6 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Table of Contents
 
+- [Components](#components)
+  - [App](#app)
+  - [TextField](#textfield)
+  - [DateField](#datefield)
+  - [EmailField](#emailfield)
+  - [CheckboxInput](#checkboxinput)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
   - [npm test](#npm-test)
@@ -24,7 +30,7 @@ Parent component for form.
 Supports input types **tel** and **text**.
 
 *Potential Improvements*
-- Update the telephone pattern to allow more leniency and better user experience. Could implement a different regex or validate manually.
+- Update the telephone pattern to allow more leniency and better user experience. Could implement a different regex or validate manually. Manual validation would be best, especially if the number is not US-based.
 
 ### DateField
 Supports input type **date**
@@ -34,7 +40,16 @@ Supports input type **date**
 - Visually connect the field to any associated checkboxes for a more intuitive user experience, perhaps with intentional spacing.
 
 ### EmailField
+Supports input type **email**. Has an example of how a field might be marked as required; this would require an update to App and sample-data, as well.
+
+*Potential Improvements*
+- Display format requirements on field exit instead of form submission.
+
 ### CheckboxInput
+Supports input type **checkbox**
+
+*Potential Improvements*
+- Visually connect the checkboxes to any associated fields for a more intuitive user experience, perhaps with intentional spacing.
 
 ## Available Scripts
 
