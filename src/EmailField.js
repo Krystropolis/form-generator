@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * Input field for sample data type of 'email'.
  *
  * @export
- * @class EmailInput
+ * @class EmailField
  * @extends {Component}
  * @property {string} id Field name.
  * @property {object} field Object containing sample data for rendering.
